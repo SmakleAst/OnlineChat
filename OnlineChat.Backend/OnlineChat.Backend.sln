@@ -3,9 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{D7ADC576-B742-4889-AA75-7483465BC415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineChat.Api", "OnlineChat.Api\OnlineChat.Api.csproj", "{9A03B996-3F01-4E91-B90B-CA34EC5E6961}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hubs", "Hubs", "{9B76D9A4-4D16-4D07-AD61-67EFCD4C0BC3}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A03B996-3F01-4E91-B90B-CA34EC5E6961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A03B996-3F01-4E91-B90B-CA34EC5E6961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A03B996-3F01-4E91-B90B-CA34EC5E6961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A03B996-3F01-4E91-B90B-CA34EC5E6961}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A03B996-3F01-4E91-B90B-CA34EC5E6961} = {D7ADC576-B742-4889-AA75-7483465BC415}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A68C5B40-8388-49BE-AF7D-70A3F4579B34}
