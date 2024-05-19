@@ -33,9 +33,31 @@ namespace OnlineChat.Api.Hubs
 
             var connection = JsonSerializer.Deserialize<UserConnection>(connectionString);
 
-            await Clients
-                .Group(connection.ChatRoom)
-                .ReceiveMessage(connection.UserName, message);
+            if (connection is not null)
+            {
+                await Clients
+                    .Group(connection.ChatRoom)
+                    .ReceiveMessage(connection.UserName, message);
+            }
+        }
+
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            var connectionString = await _cache.GetAsync(Context.ConnectionId);
+
+            var connection = JsonSerializer.Deserialize<UserConnection>(connectionString);
+
+            if (connection is not null)
+            {
+                await _cache.RemoveAsync(Context.ConnectionId);
+                await Groups.RemoveFromGroupAsync(Context.ConnectionId, connection.ChatRoom);
+
+                await Clients
+                    .Group(connection.ChatRoom)
+                    .ReceiveMessage("Admin", $"{connection.UserName} вышел из чата");
+            }
+
+            await base.OnDisconnectedAsync(exception);
         }
     }
 
