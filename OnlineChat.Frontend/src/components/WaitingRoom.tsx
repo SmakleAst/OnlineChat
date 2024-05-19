@@ -6,7 +6,7 @@ export const WaitingRoom  = ({ joinChat }) => {
 	const [chatName, setChatName] = useState();
 
 	const onSubmit = (e) => {
-		e.PreventDefault();
+		e.preventDefault();
 		joinChat(userName, chatName);
 	}
 
